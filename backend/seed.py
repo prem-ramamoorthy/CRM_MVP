@@ -4,6 +4,8 @@ from datetime import datetime, timezone, timedelta
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 from app.core.security import hash_password
+from sqlalchemy.pool import NullPool
+
 from app.models.user import User, UserRole
 from app.models.lead import (
     Lead,
@@ -19,6 +21,7 @@ engine = create_async_engine(
     "postgresql+asyncpg://postgres.iclbvtwyfboirfuvsipr:premvit%40200@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres",
     echo=True,
     future=True,pool_pre_ping=True,
+    poolclass=NullPool,
     connect_args={
         "statement_cache_size": 0  # 🔥 THIS FIXES YOUR ERROR
     }
