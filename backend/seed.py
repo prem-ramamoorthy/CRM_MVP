@@ -18,7 +18,7 @@ from app.models.visit import Visit
 from app.models.activity import Activity, ActivityType
 
 engine = create_async_engine(
-    "postgresql+asyncpg://postgres.iclbvtwyfboirfuvsipr:premvit%40200@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres",
+    "postgresql+asyncpg://postgres.iclbvtwyfboirfuvsipr:premvit%40200@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres?pgbouncer=true",
     echo=True,
     future=True,pool_pre_ping=True,
     poolclass=NullPool,
