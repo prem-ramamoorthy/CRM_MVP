@@ -4,15 +4,11 @@ from app.core.config import settings
 from sqlalchemy.pool import NullPool
 
 engine = create_async_engine(
-    "postgresql+asyncpg://postgres.iclbvtwyfboirfuvsipr:premvit%40200@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres?pgbouncer=true",
-    echo=settings.ENVIRONMENT == "development",
-    pool_size=10,
-    max_overflow=20,
-    pool_pre_ping=True,
-    poolclass=NullPool,
+    "postgresql+asyncpg://postgres.iclbvtwyfboirfuvsipr:YOUR_PASSWORD@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres?pgbouncer=true",
+    echo=True,
     connect_args={
-        "statement_cache_size": 0,  # disable asyncpg cache
-    },
+        "statement_cache_size": 0
+    }
 )
 
 AsyncSessionLocal = async_sessionmaker(
