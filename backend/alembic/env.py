@@ -19,7 +19,7 @@ _url = make_url(settings.DATABASE_URL)
 if not _url.host:
     _url = _url.set(host="localhost")
 
-DATABASE_URL = str("postgresql+asyncpg://postgres:premvit%40200@db.iclbvtwyfboirfuvsipr.supabase.co:5432/postgres")
+DATABASE_URL = str("postgresql+asyncpg://postgres.iclbvtwyfboirfuvsipr:premvit%40200@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres")
 SYNC_DATABASE_URL = str(_url.set(drivername=_url.drivername.replace("+asyncpg", "+psycopg2")))
 
 # Override sqlalchemy.url with our settings

@@ -16,9 +16,12 @@ from app.models.visit import Visit
 from app.models.activity import Activity, ActivityType
 
 engine = create_async_engine(
-    "postgresql+asyncpg://postgres:premvit%40200@db.iclbvtwyfboirfuvsipr.supabase.co:5432/postgres",
+    "postgresql+asyncpg://postgres.iclbvtwyfboirfuvsipr:premvit%40200@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres",
     echo=True,
-    future=True,
+    future=True,pool_pre_ping=True,
+    connect_args={
+        "statement_cache_size": 0  # 🔥 THIS FIXES YOUR ERROR
+    }
 )
 
 Session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
