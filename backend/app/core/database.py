@@ -4,7 +4,7 @@ from app.core.config import settings
 from sqlalchemy.pool import NullPool
 
 engine = create_async_engine(
-    "postgresql+asyncpg://postgres.iclbvtwyfboirfuvsipr:YOUR_PASSWORD@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres",
+    "postgresql+asyncpg://postgres.iclbvtwyfboirfuvsipr:premvit%40200@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres",
     echo=True,
     connect_args={
         "statement_cache_size": 0
