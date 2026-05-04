@@ -17,7 +17,8 @@ from app.models.activity import Activity, ActivityType
 
 engine = create_async_engine(
     "postgresql+asyncpg://postgres:premvit%40200@db.iclbvtwyfboirfuvsipr.supabase.co:5432/postgres",
-    echo=False
+    echo=True,
+    future=True,
 )
 
 Session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
