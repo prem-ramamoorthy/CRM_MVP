@@ -49,7 +49,9 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 
 # ── Routers ───────────────────────────────────────────────────────────────────
 app.include_router(v1_router)
-
+@app.get("/")
+def root():
+    return {"message": "Hello"}
 
 # ── Health check ──────────────────────────────────────────────────────────────
 @app.get("/health", tags=["Health"])
