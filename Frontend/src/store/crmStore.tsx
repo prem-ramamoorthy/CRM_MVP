@@ -16,7 +16,6 @@ import type { ActivityEvent, ActivityType, Lead, LeadStatus, NextAction, User, V
 import { env } from "@/lib/env";
 import { leadsApi } from "@/lib/api/leads";
 import { visitsApi } from "@/lib/api/index";
-import { activitiesApi } from "@/lib/api/index";
 
 // ── Seed helpers ──────────────────────────────────────────────────────────────
 
@@ -89,8 +88,8 @@ const CrmContext = createContext<CrmContextValue | null>(null);
 
 // ── Helpers to adapt API response → local Lead shape ─────────────────────────
 
-function apiLeadToLocal(apiLead: Record<string, unknown>): Lead {
-  const na = apiLead.next_action as { type: string; due_at: string; note?: string } | null;
+function apiLeadToLocal(apiLead: any): Lead {
+  const na = (apiLead as any).next_action as { type: string; due_at: string; note?: string } | null;
   return {
     id: String(apiLead.id),
     name: String(apiLead.name),
