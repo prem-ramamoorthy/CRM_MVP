@@ -16,7 +16,7 @@ from app.models.visit import Visit
 from app.models.activity import Activity, ActivityType
 
 engine = create_async_engine(
-    "postgresql+asyncpg://postgres:Prem%402005@localhost:5432/pg_crm",
+    "postgresql+asyncpg://postgres:premvit%40200@db.iclbvtwyfboirfuvsipr.supabase.co:5432/postgres",
     echo=False
 )
 

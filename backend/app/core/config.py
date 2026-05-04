@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = "development"
 
     # Database
-    DATABASE_URL: str = "postgresql+asyncpg://postgres:Prem%402005@localhost:5432/pg_crm"
+    DATABASE_URL: str = "postgresql+asyncpg://postgres:premvit%40200@db.iclbvtwyfboirfuvsipr.supabase.co:5432/postgres"
 
     # Auth
     SECRET_KEY: str = "change-me-in-production-at-least-32-characters"
